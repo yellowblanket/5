@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隨機選號器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #randomNumber {
+            font-size: 40px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #4CAF50;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>沈秉融的隨機選號器</h1>
+      ---------------------------
+        <p>請選擇一個範圍來隨機選擇一個號碼</p>
+        <label for="minNum">最小號碼:</label>
+        <input type="number" id="minNum" value="1">
+        <br><br>
+        <label for="maxNum">最大號碼:</label>
+        <input type="number" id="maxNum" value="100">
+        <br><br>
+        <button onclick="generateRandomNumber()">生成隨機號碼</button>
+        <div id="randomNumber"></div>
+    </div>
+
+    <script>
+        function generateRandomNumber() {
+            // 取得用戶輸入的範圍
+            const min = parseInt(document.getElementById('minNum').value);
+            const max = parseInt(document.getElementById('maxNum').value);
+            
+            // 檢查範圍是否有效
+            if (isNaN(min) || isNaN(max) || min >= max) {
+                alert('請確保最小號碼小於最大號碼，並且都為有效數字！');
+                return;
+            }
+
+            // 生成隨機數字
+            const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+            
+            // 顯示隨機數字
+            document.getElementById('randomNumber').textContent = `隨機號碼是: ${randomNum}`;
+        }
+    </script>
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
